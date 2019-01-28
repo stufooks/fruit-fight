@@ -9,10 +9,9 @@ module.exports = {
     index: (req, res) => {
         Fruit.countDocuments()
         .then(count => {
-            let id1
-            let id2
+            let id1 = rand(count)
+            let id2 = rand(count)
             while(id1 === id2) {
-                id1 = rand(count)
                 id2 = rand(count)
             }
             Fruit.find({$or: [{ id: id1}, { id: id2 }]})

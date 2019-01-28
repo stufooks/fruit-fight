@@ -1,14 +1,20 @@
-<h1>click your favorite</h1>
-{{#each fruits}}
-    <form method="POST" action="/fruit/{{ id }}?_method=PATCH" class="fruit-form">
-        <div class="card">
-            <img src="{{ url }}">
-            <input type="submit" value='{{ name }}' class='fruit-button'>
-        </div>
-    </form>
-{{/each}}
+<section class="fight">
+    <nav>
+        <form method="GET" action="/leaderboard" class="leaderboard-form">
+            <input type="submit" value="View Leaderboard" class="leaderboard-button">
+        </form>
+    </nav>
 
+    <h1>click your favorite</h1>
 
-<form method="GET" action="/leaderboard" class="leaderboard-form">
-    <input type="submit" value="View Leaderboard" class="leaderboard-button">
-</form>
+    <div class="fruit-container">
+        {{#each fruits}}
+            <form method="POST" action="/fruit/{{ id }}?_method=PATCH" class="fruit-form">
+                <div class="card">
+                    <img src="{{ url }}">
+                    <input type="submit" value='{{ name }}' class='fruit-button'>
+                </div>
+            </form>
+        {{/each}}
+    </div>
+</section>

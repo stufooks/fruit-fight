@@ -1,0 +1,54 @@
+.fight {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;  
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14vh;
+}
+
+nav * {
+    font-size: .9em;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.fruit-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin: 4vh;
+}
+
+input {
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    background-color: #47ce09;
+    color: white;
+    font-size: 1.6em;
+}
+
+input:hover {
+    font-weight: bold;
+}
