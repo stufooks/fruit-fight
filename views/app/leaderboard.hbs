@@ -1,7 +1,32 @@
-<section class="leaderboard-container">
-    <ol>
-        {{#each results}}
-            <li>{{ name }}</li>
-        {{/each}}
-    </ol>
+<section class="content">
+    <div class="left">
+        <div class="title-container">
+            <h1>Current Standings</h1>
+        </div>
+        <div class="leaderboard-container">
+            <ol>
+                {{#each results}}
+                <li>{{ name }}</li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+    <div class="right">
+        <div class="comments-container">
+            <div class="form-container">
+                <h1>Comments?</h1>
+                <form action="/comment" method="POST" class="comment-form">
+                    <p class="input-field">
+                        <textarea name="comment[name]" cols="30" rows="2" placeholder="Name (optional)"></textarea>
+                    </p>
+                    <p class="input-field">
+                        <textarea name="comment[fruit]" cols="30" rows="2" placeholder="Any missing fruits?"></textarea>
+                    </p>
+                    <p class="input-field">
+                        <textarea name="comment[contnet]" cols="30" rows="10" placeholder="Other comments"></textarea>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
