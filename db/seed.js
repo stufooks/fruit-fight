@@ -62,7 +62,13 @@ Fruit.deleteMany({}).then(() => {
         id: 15,
         name: "Mandarins",
         url: "https://i.imgur.com/0cZvwkz.jpg"
-    })
+    }).then(
+        Comment.deleteMany({}).then(
+            Comment.create({
+                name: "Stuart",
+                fruit: "Avocado",
+                Content: "Fun game!"
+            })
+        )
+    )
 })
-
-Comment.deleteMany({})

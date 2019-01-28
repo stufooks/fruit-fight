@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Comment = new Schema({
     fruit: String,
     content: String,
-    user: {
+    name: {
         type: String,
         default: "Anonymous"
     }
