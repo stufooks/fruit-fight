@@ -1,4 +1,4 @@
-const randomIndex = function (max) {
+const rand = function (max) {
     let random = Math.random()
     return Math.ceil(random * max)
 }
@@ -9,23 +9,30 @@ module.exports = {
     index: (req, res) => {
         Fruit.countDocuments()
         .then(count => {
-            let id1 = 1
-            let id2 = 1
+            let id1
+            let id2
             while(id1 === id2) {
-                id1 = randomIndex(count)
-                id2 = randomIndex(count)
+                id1 = rand(count)
+                id2 = rand(count)
             }
-            // find all fruits where id = id1 OR id = id2
-            console.log(id1, id2)
             Fruit.find({$or: [{ id: id1}, { id: id2 }]})
             .then(fruits => {
-                console.log(fruits)
                 res.render('fruit/fight', { fruits })
             })
         })
     },
     update: (req, res) => {
-        res.send('hello put')
+        console.log(req.params.id)
+        Fruit.findOne({ id: req.params.id })
+        .then(fruit => {
+            let score = fruit.score + 200
+            console.log(score)
+            Fruit.findOneAndUpdate({ id: req.params.id }, { $set: { score: score }})
+            .then(result => {
+                console.log(result)
+                res.redirect('/fruit')
+            })
+        })
     }
 }
 

@@ -5,11 +5,11 @@ Fruit.deleteMany({}).then(() => {
     Fruit.create({
         id: 1,
         name: "Red Apple",
-        url: "https://flic.kr/p/jNQ55",
+        url: "https://fillmurray.com/200/500",
     }, {
         id: 2,
         name: "Orange",
-        url: "https://flic.kr/p/eVGmEp"
+        url: "https://fillmurray.com/200/300"
     })
 })
 
