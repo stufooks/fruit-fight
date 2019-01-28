@@ -5,6 +5,11 @@ module.exports = {
         res.render('app/home')
     },
     index: (req, res) => {
-        res.send('hello')
+        Fruit.find({})
+        .sort({ score: -1 })
+        .then(results => {
+            console.log(results)
+            res.render('app/leaderboard', { results })
+        })
     }
 }

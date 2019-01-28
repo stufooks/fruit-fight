@@ -22,14 +22,11 @@ module.exports = {
         })
     },
     update: (req, res) => {
-        console.log(req.params.id)
         Fruit.findOne({ id: req.params.id })
         .then(fruit => {
             let score = fruit.score + 200
-            console.log(score)
             Fruit.findOneAndUpdate({ id: req.params.id }, { $set: { score: score }})
-            .then(result => {
-                console.log(result)
+            .then(() => {
                 res.redirect('/fruit')
             })
         })
