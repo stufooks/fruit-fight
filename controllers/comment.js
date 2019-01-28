@@ -11,13 +11,17 @@ module.exports = {
         })
     },
     show: (req, res) => {
-        Comment.find({ _id: req.params.id })
+        console.log(req.params.id)
+        Comment.findOne({ _id: req.params.id })
         .then(comment => {
             console.log(comment)
             res.render('comment/show', { comment })
         })
     },
     delete: (req, res) => {
-        res.send('hello')
+        Comment.findOneAndRemove({ _id: req.params.id })
+        .then(() => {
+            res.redirect('/leaderboard')
+        })
     }
 }

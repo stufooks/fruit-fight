@@ -11,8 +11,8 @@
         {{#each fruits}}
             <form method="POST" action="/fruit/{{ id }}?_method=PATCH" class="fruit-form">
                 <div class="card">
-                    <img src="{{ url }}">
-                    <input type="submit" value='{{ name }}' class='fruit-button'>
+                    <button type="submit" class='fruit-button'><img src="{{ url }}"></button>
+                    <h2>{{ name }}</h2>
                 </div>
             </form>
         {{/each}}

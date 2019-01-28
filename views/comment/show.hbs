@@ -1,3 +1,15 @@
-<h1>{{ comment.name }}</h1>
-
-
+<div class="comment-show-container">
+    <h1>{{ comment.name }}</h1>
+    <h2>{{ comment.fruit }}</h2>
+    <h2>{{ comment.content }}</h2>
+</div>
+<div class="button">
+    <form method="POST" action="/comment/{{ comment._id }}?_method=DELETE" class="delete-form">
+        <input type="submit" value="Delete">
+    </form>
+</div>
+<div class="button">
+    <form method="GET" action="/" class="home-form">
+        <input type="submit" value="Home">
+    </form>
+</div>
