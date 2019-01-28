@@ -19,6 +19,7 @@
   "homepage": "https://github.com/stufooks/fruit-fight#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "hbs": "^4.0.1",
     "mongoose": "^5.4.7"
   }
 }
