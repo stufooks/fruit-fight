@@ -21,7 +21,7 @@ Fruit.deleteMany({}).then(() => {
     }, {
         id: 5,
         name: "Strawberries",
-        url: "https://i.imgur.com/0FioyYT.jpg"
+        url: "https://i.imgur.com/TIPOzOt.jpg"
     }, {
         id: 6,
         name: "Peaches",
@@ -41,7 +41,7 @@ Fruit.deleteMany({}).then(() => {
     }, {
         id: 10,
         name: "Watermelon",
-        url: "https://i.imgur.com/bsOiyel.jpg"
+        url: "https://i.imgur.com/L4d4iCq.jpg"
     }, {
         id: 11,
         name: "Green Apples",
@@ -49,7 +49,7 @@ Fruit.deleteMany({}).then(() => {
     }, {
         id: 12,
         name: "Raspberries",
-        url: "https://i.imgur.com/cQwE2o5.jpg"
+        url: "https://i.imgur.com/M7B3C0N.jpg"
     }, {
         id: 13,
         name: "Blackberries",
@@ -57,11 +57,7 @@ Fruit.deleteMany({}).then(() => {
     }, {
         id: 14,
         name: "Blueberries",
-        url: "https://i.imgur.com/bEQZ75a.jpg"
-    }, {
-        id: 15,
-        name: "Mandarins",
-        url: "https://i.imgur.com/0cZvwkz.jpg"
+        url: "https://i.imgur.com/0TIDer1.jpg"
     }).then(
         Comment.deleteMany({}).then(
             Comment.create({

@@ -38,18 +38,24 @@ h1 {
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
 }
 
 input {
     border: none;
-    font-family: 'Raleway', sans-serif;
-    background-color: #47ce09;
+    font-family: 'Nunito', sans-serif;
+    background-color: #01DF3A;
     color: white;
     font-size: 1.6em;
 }
 
 input:hover {
     font-weight: bold;
+}
+
+img:hover {
+    width: 260px !important;
+    height: 260px !important;
 }
