@@ -61,7 +61,6 @@ Fruit.deleteMany({}).then(() => {
     }).then(
         Comment.deleteMany({}).then(
             Comment.create({
-                name: "Stuart",
                 fruit: "Avocado",
                 content: "Fun game!"
             })

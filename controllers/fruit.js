@@ -23,7 +23,7 @@ module.exports = {
     update: (req, res) => {
         Fruit.findOne({ id: req.params.id })
         .then(fruit => {
-            let score = fruit.score + 200
+            let score = fruit.score + (200)
             Fruit.findOneAndUpdate({ id: req.params.id }, { $set: { score: score }})
             .then(() => {
                 res.redirect('/fruit')
