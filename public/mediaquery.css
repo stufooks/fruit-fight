@@ -1,4 +1,9 @@
 @media only screen and (max-width: 600px) {
+    .main-title{
+        width: 95% !important;
+        text-align: center;
+    }
+
     .instructions {
         font-size: 2em !important;
     }
