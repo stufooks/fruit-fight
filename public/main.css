@@ -23,6 +23,7 @@ main {
 
 main h1 {
     font-size: 5em;
+    margin-bottom: 10vh;
 }
 
 button {

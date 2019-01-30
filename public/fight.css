@@ -1,5 +1,6 @@
 .fight {
     height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -10,15 +11,16 @@ nav {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin: 20px 20px 14vh 0;
+    margin: 20px 20px 10vh 0;
 }
 
 nav * {
     font-size: .9em;
 }
 
-h1 {
+.instructions {
     font-size: 4em;
+    margin-bottom: 20vh;
 }
 
 .fruit-container {
