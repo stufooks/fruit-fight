@@ -7,7 +7,7 @@ const Fruit = new Schema({
     url: String,
     score: {
         type: Number,
-        default: 200
+        default: 1000
     }
 })
 

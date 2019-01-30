@@ -8,13 +8,21 @@
     <h1>click your favorite</h1>
 
     <div class="fruit-container">
-        {{#each fruits}}
-            <form method="POST" action="/fruit/{{ id }}?_method=PATCH" class="fruit-form">
-                <div class="card">
-                    <button type="submit" class='fruit-button'><img src="{{ url }}"></button>
-                    <button type="submit" class='fruit-button'><h2>{{ name }}</h2></button>
-                </div>
-            </form>
-        {{/each}}
+        <form method="POST" action="/fruit/{{ fruits.0.id }}/{{ fruits.1.id }}?_method=PATCH" class="fruit-form">
+            <div class="card">
+                <button type="submit"><img src="{{ fruits.0.url }}"></button>
+                <button type="submit">
+                    <h2>{{ fruits.0.name }}</h2>
+                </button>
+            </div>
+        </form>
+        <form method="POST" action="/fruit/{{ fruits.1.id }}/{{ fruits.0.id }}?_method=PATCH" class="fruit-form">
+            <div class="card">
+                <button type="submit"><img src="{{ fruits.1.url }}"></button>
+                <button type="submit">
+                    <h2>{{ fruits.1.name }}</h2>
+                </button>
+            </div>
+        </form>
     </div>
 </section>
