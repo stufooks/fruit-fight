@@ -6,6 +6,12 @@
     overflow: hidden;
 }
 
+textarea {
+    background-color: #000000;
+    border: 1px solid #01DF3A;
+    color: #ffffff;
+}
+
 .left {
     display: flex;
     flex-direction: column;

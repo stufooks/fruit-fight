@@ -9,30 +9,40 @@ button:focus, input:focus {
 body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    background-color: #01DF3A;
-    color: white;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 main {
-    height: 100vh;
+    border: #01DF3A 5px solid;
+    border-radius: 25px;
+    min-height: 300px;
+    min-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 main h1 {
     font-size: 5em;
 }
 
-button {
-    border: none;
+.button {
+    border: 1px solid #01DF3A;
+    border-radius: 5px;
     font-family: 'Nunito', sans-serif;
-    background-color: #01DF3A;
-    color: white;
+    background-color: #000000;
+    color: #01DF3A;
     font-size: 1.8em;
 }
 
-button:hover {
-    font-weight: bold;
+.button:hover {
+    border: 1px solid #FFFFFF;
+    background-color: #01DF3A;
+    color: #FFFFFF;
 }
