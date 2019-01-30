@@ -56,8 +56,3 @@ input {
 input:hover {
     font-weight: bold;
 }
-
-img:hover {
-    width: 260px !important;
-    height: 260px !important;
-}

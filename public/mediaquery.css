@@ -21,4 +21,51 @@
     button h2 {
         font-size: .8em !important;
     }
+
+    img:hover {
+        width: 110px !important;
+        height: 110px !important;
+    }
+
+    .content {
+        flex-wrap: wrap;
+    }
+
+    .left {
+        width: 100vw !important;
+    }
+
+    .right {
+        width: 100vw !important;
+        height: auto !important;
+    }
+
+    .title-container {
+        margin-bottom: 10vh !important;
+    }
+
+    .space {
+        height: 2vh !important;
+    }
+
+    .comments-container {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    nav {
+        width: 100% !important;
+        justify-content: center !important;
+    }
   }
+
+@media only screen and (min-width: 600px) {
+    img:hover {
+        width: 260px !important;
+        height: 260px !important;
+    }
+
+    .content {
+        overflow: hidden;
+    }
+}
