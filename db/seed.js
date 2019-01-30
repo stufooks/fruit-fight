@@ -1,5 +1,6 @@
 const Fruit = require('../models/Fruit')
 const Comment = require('../models/Comment')
+const Matchup = require('../models/Matchup')
 
 Fruit.deleteMany({}).then(() => {
     Fruit.create({
@@ -58,12 +59,28 @@ Fruit.deleteMany({}).then(() => {
         id: 14,
         name: "Blueberries",
         url: "https://i.imgur.com/0TIDer1.jpg"
-    }).then(
-        Comment.deleteMany({}).then(
+    }, {
+        id: 15,
+        name: "Pineapple",
+        url: "https://i.imgur.com/SpMTYol.jpg"
+    }, {
+        id: 16,
+        name: "Mango",
+        url: "https://i.imgur.com/r69fwSN.jpg?1"
+    }, {
+        id: 17,
+        name: "Cherries",
+        url: "https://i.imgur.com/CNUA6ry.jpg"
+    }).then( () => {
+        Comment.deleteMany({}).then( () => {
             Comment.create({
                 fruit: "Avocado",
                 content: "Fun game!"
+            }).then( () => {
+                Matchup.deleteMany({}).then(() => {
+                    console.log('done')
+                })
             })
-        )
-    )
+        })
+    })
 })
