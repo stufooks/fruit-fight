@@ -66,13 +66,5 @@ module.exports = {
                 })
                 })
             }
-        // Fruit.find({ id: req.params.id1 })
-        // .then(fruit => {
-        //     let score = fruit.score + (200)
-        //     Fruit.findOneAndUpdate({ id: req.params.id }, { $set: { score: score }})
-        //     .then(() => {
-        //         res.redirect('/fruit')
-        //     })
-        // })
 }
 
