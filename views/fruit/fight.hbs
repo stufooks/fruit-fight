@@ -10,17 +10,17 @@
     <div class="fruit-container">
         <form method="POST" action="/fruit/{{ fruits.0.id }}/{{ fruits.1.id }}?_method=PATCH" class="fruit-form">
             <div class="card">
-                <button type="submit"><img src="{{ fruits.0.url }}"></button>
+                <button type="submit"><img src="{{ fruits.0.url }}" alt="{{ fruits.0.name }}"></button>
                 <button type="submit">
-                    <h2>{{ fruits.0.name }}</h2>
+                    {{ fruits.0.name }}
                 </button>
             </div>
         </form>
         <form method="POST" action="/fruit/{{ fruits.1.id }}/{{ fruits.0.id }}?_method=PATCH" class="fruit-form">
             <div class="card">
-                <button type="submit"><img src="{{ fruits.1.url }}"></button>
+                <button type="submit"><img src="{{ fruits.1.url }}" alt="{{ fruits.1.name }}"></button>
                 <button type="submit">
-                    <h2>{{ fruits.1.name }}</h2>
+                    {{ fruits.1.name }}
                 </button>
             </div>
         </form>
