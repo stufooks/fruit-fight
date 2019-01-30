@@ -1,13 +1,13 @@
     <nav>
         <form method="GET" action="/leaderboard" class="leaderboard-form">
-            <input type="submit" value="View Leaderboard" class="fruit-button">
+            <input type="submit" value="View Leaderboard" class="button">
         </form>
     </nav>
     <h1 class="instruct">click your favorite</h1>
     <div class="fruit-container">
         <form method="POST" action="/fruit/{{ fruits.0.id }}/{{ fruits.1.id }}?_method=PATCH" class="fruit-form">
             <div class="card">
-                <button type="submit" class="button"><img src="{{ fruits.0.url }}"></button>
+                <button type="submit"><img src="{{ fruits.0.url }}"></button>
                 <button type="submit" class="fruit-button">
                     <h2>{{ fruits.0.name }}</h2>
                 </button>
