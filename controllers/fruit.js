@@ -31,12 +31,12 @@ module.exports = {
     });
   },
   update: (req, res) => {
-    let score1 = 1000;
-    let score2 = 1000;
+    let score1 = 0;
+    let score2 = 0;
     let newScore1 = 0;
     let newScore2 = 0;
-    let newFruit1 = {};
-    let newFruit2 = {};
+    if(!req.user) {
+    console.log('NO user logged in')
     Matchup.create({
       winner: req.params.id1,
       loser: req.params.id2
@@ -65,24 +65,49 @@ module.exports = {
                   { new: true }
                 ).then(fruit => {
                   newFruit2 = fruit;
-                  if (req.user) {
-                    User.findOne({ _id: req.user._id })
-                      .then(user => {
-                        user.local.fruits.push(newFruit1);
-                        user.local.fruits.push(newFruit2);
-                        user.save();
-                        console.log(user);
-                      })
-                      .then(() => {
-                        res.redirect("/fruit");
-                      });
-                  } else {
                     res.redirect("/fruit");
-                  }
                 });
               });
             });
         });
     });
-  }
-};
+  } else {
+    console.log('user logged in')
+    Matchup.create({
+      winner: req.params.id1,
+      loser: req.params.id2
+  }).then(() => {
+    for(let i = 0; i < req.user.local.fruits.length; i++) {
+      if(req.user.local.fruits[i].id === req.params.id1) {
+        score1 = req.user.local.fruits[i].score
+      } else {
+        score1 = 1000
+      }
+    }
+    for(let i = 0; i < req.user.local.fruits.length; i++) {
+      if(req.user.local.fruits[i].id === req.params.id2) {
+        score2 = req.user.local.fruits[i].score
+      } else {
+        score2 = 1000
+      }
+    }
+
+    newScore1 = elo(score1, score2, 1);
+    newScore2 = elo(score2, score1, 0);
+
+    let newFruit1 = {score: newScore1, id: req.params.id1}
+    let newFruit2 = {score: newScore2, id: req.params.id2}
+
+    User.findOne({ _id: req.user._id })
+    .then(user => {
+      user.local.fruits.push(newFruit1)
+      user.local.fruits.push(newFruit2)
+      user.save()
+      console.log(user)
+    }).then(() => {
+      res.redirect('/fruit')
+    })
+  })
+}
+}
+}
