@@ -3,7 +3,6 @@ const rand = function(max) {
   return Math.ceil(random * max);
 };
 
-
 const K = 50;
 const elo = function(player1, opponent, win) {
   let R1 = Math.pow(10, player1 / 400);
@@ -14,10 +13,9 @@ const elo = function(player1, opponent, win) {
   return Math.round(player1 + K * (win - E1));
 };
 
-
 const Fruit = require("../models/Fruit");
 const Matchup = require("../models/Matchup");
-
+const User = require("../models/User");
 
 module.exports = {
   index: (req, res) => {
@@ -33,10 +31,12 @@ module.exports = {
     });
   },
   update: (req, res) => {
-    let score1 = 0;
-    let score2 = 0;
+    let score1 = 1000;
+    let score2 = 1000;
     let newScore1 = 0;
     let newScore2 = 0;
+    let newFruit1 = {};
+    let newFruit2 = {};
     Matchup.create({
       winner: req.params.id1,
       loser: req.params.id2
@@ -55,13 +55,30 @@ module.exports = {
             .then(() => {
               Fruit.findOneAndUpdate(
                 { id: req.params.id1 },
-                { $set: { score: newScore1 } }
-              ).then(() => {
+                { $set: { score: newScore1 } },
+                { new: true }
+              ).then(fruit => {
+                newFruit1 = fruit;
                 Fruit.findOneAndUpdate(
                   { id: req.params.id2 },
-                  { $set: { score: newScore2 } }
-                ).then(() => {
-                  res.redirect("/fruit");
+                  { $set: { score: newScore2 } },
+                  { new: true }
+                ).then(fruit => {
+                  newFruit2 = fruit;
+                  if (req.user) {
+                    User.findOne({ _id: req.user._id })
+                      .then(user => {
+                        user.local.fruits.push(newFruit1);
+                        user.local.fruits.push(newFruit2);
+                        user.save();
+                        console.log(user);
+                      })
+                      .then(() => {
+                        res.redirect("/fruit");
+                      });
+                  } else {
+                    res.redirect("/fruit");
+                  }
                 });
               });
             });
