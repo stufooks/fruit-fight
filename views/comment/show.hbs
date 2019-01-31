@@ -1,15 +1,23 @@
-<div class="comment-show-container">
-    <h1>{{ comment.name }}</h1>
-    <h2>{{ comment.fruit }}</h2>
-    <h2>{{ comment.content }}</h2>
-</div>
-<div class="button">
-    <form method="POST" action="/comment/{{ comment._id }}?_method=DELETE" class="delete-form">
-        <input type="submit" value="Delete">
-    </form>
-</div>
-<div class="button">
-    <form method="GET" action="/" class="home-form">
-        <input type="submit" value="Home">
-    </form>
-</div>
+<style>
+body {
+    background-color: #01DF3A;
+    color: white;
+}
+</style>
+<section style="font-family: 'Nunito';margin: 10vw;">
+<h1>Thanks for your comment!</h1>
+    <div class="comment-show-container" style="border: 2px solid white;padding: 30px;">
+        <h4>Missing Fruits: {{ comment.fruit }}</h4>
+        <h4>{{ comment.content }}</h4>
+    </div>
+    <div class="button">
+        <form method="POST" action="/comment/{{ comment._id }}?_method=DELETE" class="delete-form">
+            <input type="submit" value="Delete" style="font-family: 'Nunito';">
+        </form>
+    </div>
+    <div class="button">
+        <form method="GET" action="/" class="home-form">
+            <input type="submit" value="Home" style="font-family: 'Nunito';margin-top: 2vh;">
+        </form>
+    </div>
+</section>
