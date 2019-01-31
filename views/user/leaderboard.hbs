@@ -1,0 +1,12 @@
+{{#if user}}
+<h1>Your Personal Leaderboard</h1>
+<ul>
+    {{#each user.local.fruits}}
+    <li>fruit: {{ this.id }} score: {{ this.score }}</li>
+    {{/each}}
+</ul>
+
+
+{{else}}
+<h1>No User</h1>
+{{/if}}
