@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,17 @@
     <link rel="stylesheet" href="leaderboard.css">
     {{/if}}
     {{#if comment}}
-    <link rel="stylesheet" href="comment.css">
+    <style>
+        body {
+            background-color: #01DF3A;
+            color: white;
+        }
+    </style>
     {{/if}}
 </head>
+
 <body>
     {{{ body }}}
 </body>
+
 </html>
