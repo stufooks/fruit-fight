@@ -6,71 +6,71 @@ Fruit.deleteMany({}).then(() => {
     Fruit.create({
         id: 1,
         name: "Red Apples",
-        src: "images/red-apple.jpg",
+        src: "/images/red-apple.jpg",
     }, {
         id: 2,
         name: "Oranges",
-        src: "images/oranges.jpg"
+        src: "/images/oranges.jpg"
     }, {
         id: 3,
         name: "Pears",
-        src: "images/pears.jpg"
+        src: "/images/pears.jpg"
     }, {
         id: 4,
         name: "Grapes",
-        src: "images/grapes.jpg"
+        src: "/images/grapes.jpg"
     }, {
         id: 5,
         name: "Strawberries",
-        src: "images/strawberries.jpg"
+        src: "/images/strawberries.jpg"
     }, {
         id: 6,
         name: "Peaches",
-        src: "images/peaches.jpg"
+        src: "/images/peaches.jpg"
     }, {
         id: 7,
         name: "Honeydew",
-        src: "images/honeydew.jpg"
+        src: "/images/honeydew.jpg"
     }, {
         id: 8,
         name: "Cantaloupe",
-        src: "images/cantaloupe.jpg"
+        src: "/images/cantaloupe.jpg"
     }, {
         id: 9,
         name: "Kiwi",
-        src: "images/kiwi.jpg"
+        src: "/images/kiwi.jpg"
     }, {
         id: 10,
         name: "Watermelon",
-        src: "images/watermelon.jpg"
+        src: "/images/watermelon.jpg"
     }, {
         id: 11,
         name: "Green Apples",
-        src: "images/green-apple.jpg"
+        src: "/images/green-apple.jpg"
     }, {
         id: 12,
         name: "Raspberries",
-        src: "images/raspberries.jpg"
+        src: "/images/raspberries.jpg"
     }, {
         id: 13,
         name: "Blackberries",
-        src: "images/blackberries.jpg"
+        src: "/images/blackberries.jpg"
     }, {
         id: 14,
         name: "Blueberries",
-        src: "images/blueberries.jpg"
+        src: "/images/blueberries.jpg"
     }, {
         id: 15,
         name: "Pineapple",
-        src: "images/pineapple.jpg"
+        src: "/images/pineapple.jpg"
     }, {
         id: 16,
         name: "Mango",
-        src: "images/mango.jpg"
+        src: "/images/mango.jpg"
     }, {
         id: 17,
         name: "Cherries",
-        src: "images/cherries.jpg"
+        src: "/images/cherries.jpg"
     }).then( () => {
         Comment.deleteMany({}).then( () => {
             Comment.create({
