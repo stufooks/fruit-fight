@@ -7,16 +7,16 @@ Fruit Fight is a simple web application that prompts a user to pick their favori
 ![ScreenShot](images/fruit-fight-screenshot.png)
 
 ## Features
--The Fight, or the fruit selection screen
--The Leaderboard using the Elo Rating system: [Wikipedia](https://en.wikipedia.org/wiki/Elo_rating_system)
--A database of Matchups, or every set of fruits that was displayed to a user and the winner, or which fruit the user selected
--The option to leave a comment and delete that comment if wanted
+- The Fight, or the fruit selection screen
+- The Leaderboard using the Elo Rating system: [Wikipedia](https://en.wikipedia.org/wiki/Elo_rating_system)
+- A database of Matchups, or every set of fruits that was displayed to a user and the winner, or which fruit the user selected
+- The option to leave a comment and delete that comment if wanted
 
 ## Technologies Used
--Node/Express
--MongoDB/Mongoose
--Handlebars
--CSS
+- Node/Express
+- MongoDB/Mongoose
+- Handlebars
+- CSS
 
 ## Installation
 This app has a few node packages as dependencies. Can be installed using npm install if the reposotiry is forcked and cloned down.
