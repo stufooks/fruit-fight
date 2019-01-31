@@ -5,12 +5,12 @@
         </form>
     </nav>
 
-    <h1 class="instructions">click your favorite</h1>
+    <h1 class="instructions">click your pick</h1>
 
     <div class="fruit-container">
         <form method="POST" action="/fruit/{{ fruits.0.id }}/{{ fruits.1.id }}?_method=PATCH" class="fruit-form">
             <div class="card">
-                <button type="submit"><img src="{{ fruits.0.url }}" alt="{{ fruits.0.name }}"></button>
+                <button type="submit"><img src="{{ fruits.0.src }}" alt="{{ fruits.0.name }}"></button>
                 <button type="submit">
                     {{ fruits.0.name }}
                 </button>
@@ -18,7 +18,7 @@
         </form>
         <form method="POST" action="/fruit/{{ fruits.1.id }}/{{ fruits.0.id }}?_method=PATCH" class="fruit-form">
             <div class="card">
-                <button type="submit"><img src="{{ fruits.1.url }}" alt="{{ fruits.1.name }}"></button>
+                <button type="submit"><img src="{{ fruits.1.src }}" alt="{{ fruits.1.name }}"></button>
                 <button type="submit">
                     {{ fruits.1.name }}
                 </button>

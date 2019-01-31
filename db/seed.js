@@ -6,71 +6,71 @@ Fruit.deleteMany({}).then(() => {
     Fruit.create({
         id: 1,
         name: "Red Apples",
-        url: "https://i.imgur.com/hDNsdDj.jpg",
+        src: "images/red-apple.jpg",
     }, {
         id: 2,
         name: "Oranges",
-        url: "https://i.imgur.com/VtWAepw.jpg"
+        src: "images/oranges.jpg"
     }, {
         id: 3,
         name: "Pears",
-        url: "https://i.imgur.com/l2ocHBz.jpg"
+        src: "images/pears.jpg"
     }, {
         id: 4,
         name: "Grapes",
-        url: "https://i.imgur.com/uIXdbVg.jpg"
+        src: "images/grapes.jpg"
     }, {
         id: 5,
         name: "Strawberries",
-        url: "https://i.imgur.com/TIPOzOt.jpg"
+        src: "images/strawberries.jpg"
     }, {
         id: 6,
         name: "Peaches",
-        url: "https://i.imgur.com/mfXnmN1.jpg"
+        src: "images/peaches.jpg"
     }, {
         id: 7,
         name: "Honeydew",
-        url: "https://i.imgur.com/fdVgZr9.jpg"
+        src: "images/honeydew.jpg"
     }, {
         id: 8,
         name: "Cantaloupe",
-        url: "https://i.imgur.com/X9lJMWW.png"
+        src: "images/cantaloupe.jpg"
     }, {
         id: 9,
         name: "Kiwi",
-        url: "https://i.imgur.com/7UtCY8a.jpg"
+        src: "images/kiwi.jpg"
     }, {
         id: 10,
         name: "Watermelon",
-        url: "https://i.imgur.com/L4d4iCq.jpg"
+        src: "images/watermelon.jpg"
     }, {
         id: 11,
         name: "Green Apples",
-        url: "https://i.imgur.com/4aLfgKy.jpg"
+        src: "images/green-apple.jpg"
     }, {
         id: 12,
         name: "Raspberries",
-        url: "https://i.imgur.com/M7B3C0N.jpg"
+        src: "images/raspberries.jpg"
     }, {
         id: 13,
         name: "Blackberries",
-        url: "https://i.imgur.com/l4q6KM8.jpg?1"
+        src: "images/blackberries.jpg"
     }, {
         id: 14,
         name: "Blueberries",
-        url: "https://i.imgur.com/0TIDer1.jpg"
+        src: "images/blueberries.jpg"
     }, {
         id: 15,
         name: "Pineapple",
-        url: "https://i.imgur.com/SpMTYol.jpg"
+        src: "images/pineapple.jpg"
     }, {
         id: 16,
         name: "Mango",
-        url: "https://i.imgur.com/r69fwSN.jpg?1"
+        src: "images/mango.jpg"
     }, {
         id: 17,
         name: "Cherries",
-        url: "https://i.imgur.com/CNUA6ry.jpg"
+        src: "images/cherries.jpg"
     }).then( () => {
         Comment.deleteMany({}).then( () => {
             Comment.create({

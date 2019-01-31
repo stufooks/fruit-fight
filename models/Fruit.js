@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Fruit = new Schema({
     id: Number,
     name: String,
-    url: String,
+    src: String,
     score: {
         type: Number,
         default: 1000

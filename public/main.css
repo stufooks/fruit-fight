@@ -8,8 +8,8 @@ button:focus, input:focus {
 
 body {
     margin: 0;
-    font-family: 'Nunito', sans-serif;
-    background-color: #01DF3A;
+    font-family: 'Pacifico', cursive;
+    background-color: #ffb555;
     color: white;
 }
 
@@ -28,8 +28,8 @@ main h1 {
 
 button {
     border: none;
-    font-family: 'Nunito', sans-serif;
-    background-color: #01DF3A;
+    font-family: 'Pacifico', cursive;
+    background-color: #ffb555;
     color: white;
     font-size: 1.8em;
 }
