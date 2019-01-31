@@ -17,6 +17,7 @@ Fruit Fight is a simple web application that prompts a user to pick their favori
 - MongoDB/Mongoose
 - Handlebars
 - CSS
+- Heroku
 
 ## Installation
 This app has a few node packages as dependencies. Can be installed using npm install if the reposotiry is forcked and cloned down.
