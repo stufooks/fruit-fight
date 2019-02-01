@@ -3,7 +3,7 @@ const rand = function(max) {
   return Math.ceil(random * max);
 };
 
-const K = 50;
+const K = 32;
 const elo = function(player1, opponent, win) {
   let R1 = Math.pow(10, player1 / 400);
   let R2 = Math.pow(10, opponent / 400);
