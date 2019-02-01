@@ -1,7 +1,9 @@
 # Fruit Fight
 
 ## Description
-Fruit Fight is a simple web application that prompts a user to pick their favorite of two random fruits, saves their response, and then repeats. The app also has a Leaderboard that displays the current satndings, or the Elo Rating of each fruit based on the user responses. The concept came from August Warren, github.com/GWarrenn. Now we can finally answer one of life's oldest question: what is the best fruit?
+Fruit Fight is a simple web application that prompts a user to pick their favorite of two random fruits, saves their response, and then repeats. The app also has a Leaderboard that displays the current satndings, or the Elo Rating of each fruit based on the user responses. The overall concept came from August Warren, github.com/GWarrenn, the fruit images were drawn by Audree Hall, and Nicole Zonnenberg helped with the design. Thanks!
+
+Now we can finally answer one of life's oldest question: what is the best fruit?
 
 ## Example
 ![ScreenShot](images/fruit-fight-screenshot.png)
