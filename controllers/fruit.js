@@ -39,139 +39,139 @@ module.exports = {
     let newFruit2 = {};
     let contains1 = false;
     let contains2 = false;
-    if(!req.user) {
-    console.log('NO user logged in')
-    Matchup.create({
-      winner: req.params.id1,
-      loser: req.params.id2
-    }).then(() => {
-      Fruit.findOne({ id: req.params.id1 })
-        .then(fruit => {
-          score1 = fruit.score;
-        })
-        .then(() => {
-          Fruit.findOne({ id: req.params.id2 })
-            .then(fruit => {
-              score2 = fruit.score;
-              newScore1 = elo(score1, score2, 1);
-              newScore2 = elo(score2, score1, 0);
-            })
-            .then(() => {
-              Fruit.findOneAndUpdate(
-                { id: req.params.id1 },
-                { $set: { score: newScore1 } },
-                { new: true }
-              ).then(fruit => {
-                newFruit1 = fruit;
+    if (!req.user) {
+      console.log("NO user logged in");
+      Matchup.create({
+        winner: req.params.id1,
+        loser: req.params.id2
+      }).then(() => {
+        Fruit.findOne({ id: req.params.id1 })
+          .then(fruit => {
+            score1 = fruit.score;
+          })
+          .then(() => {
+            Fruit.findOne({ id: req.params.id2 })
+              .then(fruit => {
+                score2 = fruit.score;
+                newScore1 = elo(score1, score2, 1);
+                newScore2 = elo(score2, score1, 0);
+              })
+              .then(() => {
                 Fruit.findOneAndUpdate(
-                  { id: req.params.id2 },
-                  { $set: { score: newScore2 } },
+                  { id: req.params.id1 },
+                  { $set: { score: newScore1 } },
                   { new: true }
                 ).then(fruit => {
-                  newFruit2 = fruit;
+                  newFruit1 = fruit;
+                  Fruit.findOneAndUpdate(
+                    { id: req.params.id2 },
+                    { $set: { score: newScore2 } },
+                    { new: true }
+                  ).then(fruit => {
+                    newFruit2 = fruit;
                     res.redirect("/fruit");
+                  });
                 });
               });
+          });
+      });
+    } else {
+      console.log("user logged in");
+      Matchup.create({
+        winner: req.params.id1,
+        loser: req.params.id2
+      }).then(() => {
+        for (let i = req.user.local.fruits.length - 1; i >= 0; i -= 1) {
+          if (req.user.local.fruits[i].id == req.params.id1) {
+            score1 = req.user.local.fruits[i].score;
+            contains1 = true;
+            break;
+          } else {
+            score1 = 1000;
+          }
+        }
+        for (let i = req.user.local.fruits.length - 1; i >= 0; i -= 1) {
+          if (req.user.local.fruits[i].id == req.params.id2) {
+            score2 = req.user.local.fruits[i].score;
+            contains2 = true;
+            break;
+          } else {
+            score2 = 1000;
+          }
+        }
+
+        newScore1 = elo(score1, score2, 1);
+        newScore2 = elo(score2, score1, 0);
+
+        newFruit1 = { score: newScore1, id: req.params.id1 };
+        newFruit2 = { score: newScore2, id: req.params.id2 };
+
+        if (contains1 === false && contains2 === false) {
+          User.findOne({ _id: req.user._id })
+            .then(user => {
+              user.local.fruits.push(newFruit1);
+              user.save();
+              user.local.fruits.push(newFruit2);
+              user.save();
+            })
+            .then(() => {
+              res.redirect("/fruit");
             });
-        });
-    });
-  } else {
-    console.log('user logged in')
-    Matchup.create({
-      winner: req.params.id1,
-      loser: req.params.id2
-  }).then(() => {
-    for(let i = (req.user.local.fruits.length - 1); i >= 0; i -= 1) {
-      if(req.user.local.fruits[i].id == req.params.id1) {
-        score1 = req.user.local.fruits[i].score
-        contains1 = true
-        break
-      } else {
-        score1 = 1000
-      }
+        } else if (contains1 === false) {
+          User.findOne({ _id: req.user._id })
+            .then(user => {
+              user.local.fruits.push(newFruit1);
+              user.save();
+              for (let i = 0; i < req.user.local.fruits.length; i++) {
+                if (user.local.fruits[i].id == req.params.id2) {
+                  user.local.fruits.splice(i, 1, newFruit2);
+                  user.save();
+                  break;
+                }
+              }
+            })
+            .then(() => {
+              res.redirect("/fruit");
+            });
+        } else if (contains2 === false) {
+          User.findOne({ _id: req.user._id })
+            .then(user => {
+              user.local.fruits.push(newFruit2);
+              user.save();
+              for (let i = 0; i < req.user.local.fruits.length; i++) {
+                if (user.local.fruits[i].id == req.params.id1) {
+                  user.local.fruits.splice(i, 1, newFruit1);
+                  user.save();
+                  break;
+                }
+              }
+            })
+            .then(() => {
+              res.redirect("/fruit");
+            });
+        } else {
+          User.findOne({ _id: req.user._id })
+            .then(user => {
+              for (let i = 0; i < req.user.local.fruits.length; i++) {
+                if (user.local.fruits[i].id == req.params.id1) {
+                  user.local.fruits.splice(i, 1, newFruit1);
+                  user.save();
+                  break;
+                }
+              }
+              for (let i = 0; i < req.user.local.fruits.length; i++) {
+                if (user.local.fruits[i].id == req.params.id2) {
+                  user.local.fruits.splice(i, 1, newFruit2);
+                  user.save();
+                  break;
+                }
+              }
+            })
+            .then(() => {
+              res.redirect("/fruit");
+            });
+        }
+      });
     }
-    for(let i = (req.user.local.fruits.length - 1); i >= 0; i -= 1) {
-      if(req.user.local.fruits[i].id == req.params.id2) {
-        score2 = req.user.local.fruits[i].score
-        contains2 = true
-        break
-      } else {
-        score2 = 1000
-      }
-    }
-
-    newScore1 = elo(score1, score2, 1);
-    newScore2 = elo(score2, score1, 0);
-
-    newFruit1 = {score: newScore1, id: req.params.id1}
-    newFruit2 = {score: newScore2, id: req.params.id2}
-
-    if(contains1 === false && contains2 === false) {
-
-    User.findOne({ _id: req.user._id })
-    .then(user => {
-      user.local.fruits.push(newFruit1)
-      user.save()
-      user.local.fruits.push(newFruit2)
-      user.save()
-    }).then(() => {
-      res.redirect('/fruit')
-    })
-  } else if(contains1 === false) {
-
-    User.findOne({ _id: req.user._id })
-    .then(user => {
-      user.local.fruits.push(newFruit1)
-      user.save()
-      for(let i =0; i < req.user.local.fruits.length; i++) {
-        if(user.local.fruits[i].id == req.params.id2) {
-          user.local.fruits.splice(i, 1, newFruit2)
-          user.save()
-          break
-        }
-      }
-    }).then(() => {
-      res.redirect('/fruit')
-    })
-  } else if(contains2 === false) {
-
-    User.findOne({ _id: req.user._id })
-    .then(user => {
-      user.local.fruits.push(newFruit2)
-      user.save()
-      for(let i =0; i < req.user.local.fruits.length; i++) {
-        if(user.local.fruits[i].id == req.params.id1) {
-          user.local.fruits.splice(i, 1, newFruit1)
-          user.save()
-          break
-        }
-      }
-    }).then(() => {
-      res.redirect('/fruit')
-    })
-  } else {
-
-    User.findOne({ _id: req.user._id })
-    .then(user => {
-      for(let i =0; i < req.user.local.fruits.length; i++) {
-        if(user.local.fruits[i].id == req.params.id1) {
-          user.local.fruits.splice(i, 1, newFruit1)
-          user.save()
-          break
-        }
-      }
-      for(let i =0; i < req.user.local.fruits.length; i++) {
-        if(user.local.fruits[i].id == req.params.id2) {
-          user.local.fruits.splice(i, 1, newFruit2)
-          user.save()
-          break
-        }
-      }
-    }).then(() => {
-      res.redirect('/fruit')
-    })
   }
-  })
-}
-}
-}
+};
