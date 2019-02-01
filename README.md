@@ -24,5 +24,6 @@ This app has a few node packages as dependencies. Can be installed using npm ins
 
 ## Unsolved Problems
 The CSS files would link on the render of the comment/show view, but they would be empty files. I wrote the simple CSS styling inline for that view instead.
-I would also like to implement user authentication and an option to view just your personal leaderboard, as opposed to the global leaderboard.
+
+I have also started adding user authentication and an option to view a personal leaderboard. There aren't links to any of the user authentication pages, so I would like to add links for those. Additionally, the /user/leaderboard shows a personal leaderboard, but it shows the fruit ID not the fruit name - so that's something I want to work out in the future.
 
